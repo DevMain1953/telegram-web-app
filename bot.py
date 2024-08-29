@@ -1,5 +1,7 @@
 import os
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher
+from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.filters import Command
 from dotenv import load_dotenv
 
 
@@ -8,11 +10,11 @@ API_TOKEN = os.getenv("TELEGRAM_API_TOKEN")
 
 
 bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot)
+dp = Dispatcher()
 
 
-@dp.message_handler(commands=["start"])
-async def send_button(message: types.Message) -> None:
+@dp.message(Command("start"))
+async def send_button(message: Message) -> None:
     """
     Sends a message with button to client.
 
@@ -21,8 +23,8 @@ async def send_button(message: types.Message) -> None:
     """
     await message.answer(
         "Привет! Нажми на кнопку ниже, чтобы заполнить дату рождения.",
-        reply_markup=types.InlineKeyboardMarkup().add(
-            types.InlineKeyboardButton("Заполнить", url="https://your-webapp-url.com")
+        reply_markup=InlineKeyboardMarkup().add(
+            InlineKeyboardButton("Заполнить", url="https://your-webapp-url.com")
         ),
     )
 
