@@ -15,7 +15,13 @@ dp = Dispatcher(bot)
 
 
 @dp.message_handler(commands=["start"])
-async def send_welcome(message: types.Message):
+async def send_button(message: types.Message) -> None:
+    """
+    Sends a message with button to client.
+
+    :param message: A message that is sent to bot from client.
+    :type message: Message
+    """
     await message.answer(
         "Привет! Нажми на кнопку ниже, чтобы заполнить дату рождения.",
         reply_markup=types.InlineKeyboardMarkup().add(
