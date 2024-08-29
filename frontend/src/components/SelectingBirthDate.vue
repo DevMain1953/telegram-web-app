@@ -38,7 +38,9 @@ const submit = async () => {
   if (response.ok) {
     const data = await response.json()
     localStorage.setItem('clientInfo', JSON.stringify(data))
-    router.push({ name: 'ClientInfo', params: { data } })
+    router.push({ name: 'ClientInfo', params: { username: data.username } })
+  } else {
+    alert('Ошибка при сохранении данных клиента')
   }
 }
 </script>

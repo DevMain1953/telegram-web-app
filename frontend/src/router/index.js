@@ -5,9 +5,10 @@ import SelectingBirthDate from '../components/SelectingBirthDate.vue';
 
 const routes = [
   {
-    path: '/client-info',
+    path: '/client-info/:username',
     name: 'ClientInfo',
     component: ClientInfo,
+    props: true,
   },
   {
     path: '/selecting-birth-date',

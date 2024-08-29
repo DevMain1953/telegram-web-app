@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 from tortoise.contrib.fastapi import register_tortoise
 from models import Client
 from structures import ClientCreate, ClientResponse
-from datetime import datetime
+from datetime import datetime, time
 from dotenv import load_dotenv
 
 
@@ -55,7 +55,9 @@ async def get_client(username: str) -> ClientResponse:
     if not client:
         raise HTTPException(status_code=404, detail="Client not found")
 
-    days_to_birthday = get_number_of_days_to_birthday(client.birth_date)
+    days_to_birthday = get_number_of_days_to_birthday(
+        datetime.combine(client.birth_date, time.min)
+    )
     return ClientResponse(
         first_name=client.first_name,
         last_name=client.last_name,
