@@ -25,7 +25,6 @@ cd frontend
 
 # To install node modules
 npm install
-npm install pinia
 
 # To install TailwindCSS
 npm install -D tailwindcss postcss autoprefixer
