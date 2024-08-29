@@ -1,5 +1,5 @@
-fastapi
-tortoise-orm
-aiogram
-uvicorn[standard]
+fastapi==0.112.2
+tortoise-orm==0.21.6
+aiogram==3.12.0
+uvicorn==0.30.6
 
