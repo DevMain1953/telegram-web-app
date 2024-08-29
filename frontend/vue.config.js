@@ -1,4 +1,15 @@
-const { defineConfig } = require('@vue/cli-service')
+const { defineConfig } = require('@vue/cli-service');
+
 module.exports = defineConfig({
-  transpileDependencies: true
-})
+  transpileDependencies: true,
+  devServer: {
+    https: true,
+    client: {
+      webSocketURL: {
+        protocol: 'wss',
+        hostname: 'url-to-ngrok',
+        port: 443
+      }
+    },
+  }
+});
