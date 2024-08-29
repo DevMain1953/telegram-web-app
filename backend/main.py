@@ -51,7 +51,7 @@ def get_number_of_days_to_birthday(birth_date: datetime) -> int:
 
 register_tortoise(
     app,
-    db_url=f"postgres://{os.getenv("DATABASE_USER")}:{os.getenv("DATABASE_PASSWORD")}@localhost:{os.getenv("DATABASE_PORT")}/{os.getenv("DATABASE_NAME")}",
+    db_url=f"postgres://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@localhost:{os.getenv('DATABASE_PORT')}/{os.getenv('DATABASE_NAME')}",
     modules={"models": ["models"]},
     generate_schemas=True,
     add_exception_handlers=True,
