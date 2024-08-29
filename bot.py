@@ -26,6 +26,11 @@ async def send_message_with_button_to_client(message: Message) -> None:
     :param message: A message that is sent to bot from client.
     :type message: Message
     """
+    client_first_name = message.from_user.first_name
+    client_last_name = (
+        message.from_user.last_name if message.from_user.last_name else ""
+    )
+    client_username = message.from_user.username
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
             [
