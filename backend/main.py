@@ -22,7 +22,15 @@ async def save_client(client: ClientCreate) -> ClientResponse:
     :return: A set of client data that was saved to database.
     :rtype: ClientResponse
     """
-    await Client.create(**client.model_dump())
+    existing_client = await Client.get_or_none(username=client.username)
+    if existing_client:
+        existing_client.first_name = client.first_name
+        existing_client.last_name = client.last_name
+        existing_client.birth_date = client.birth_date
+        await existing_client.save()
+    else:
+        existing_client = await Client.create(**client.model_dump())
+
     days_to_birthday = get_number_of_days_to_birthday(client.birth_date)
     return ClientResponse(
         first_name=client.first_name,
