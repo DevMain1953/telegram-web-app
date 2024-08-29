@@ -21,13 +21,16 @@ async def send_button(message: Message) -> None:
     :param message: A message that is sent to bot from client.
     :type message: Message
     """
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="Заполнить", url="https://url-to-ngrok")]
+        ]
+    )
     await message.answer(
         "Привет! Нажми на кнопку ниже, чтобы заполнить дату рождения.",
-        reply_markup=InlineKeyboardMarkup().add(
-            InlineKeyboardButton("Заполнить", url="https://your-webapp-url.com")
-        ),
+        reply_markup=keyboard,
     )
 
 
 if __name__ == "__main__":
-    dp.run_polling()
+    dp.run_polling(bot)
