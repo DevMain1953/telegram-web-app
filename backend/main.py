@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from tortoise.contrib.fastapi import register_tortoise
 from models import Client
 from structures import ClientCreate, ClientResponse
@@ -30,6 +30,30 @@ async def save_client(client: ClientCreate) -> ClientResponse:
         await existing_client.save()
     else:
         existing_client = await Client.create(**client.model_dump())
+
+    days_to_birthday = get_number_of_days_to_birthday(client.birth_date)
+    return ClientResponse(
+        first_name=client.first_name,
+        last_name=client.last_name,
+        username=client.username,
+        days_to_birthday=days_to_birthday,
+    )
+
+
+@app.get("/clients/{username}", response_model=ClientResponse)
+async def get_client(username: str) -> ClientResponse:
+    """
+    Returns client bio from the database by username.
+
+    :param username: The username of the client to return.
+    :type username: str
+
+    :return: A set of client bio if found, else raises an HTTP 404 exception.
+    :rtype: ClientResponse
+    """
+    client = await Client.get_or_none(username=username)
+    if not client:
+        raise HTTPException(status_code=404, detail="Client not found")
 
     days_to_birthday = get_number_of_days_to_birthday(client.birth_date)
     return ClientResponse(
