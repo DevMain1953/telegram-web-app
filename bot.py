@@ -1,8 +1,13 @@
+import os
 from aiogram import Bot, Dispatcher, types
 from aiogram.utils import executor
+from dotenv import load_dotenv
 
 
-API_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
+load_dotenv()
+
+
+API_TOKEN = os.getenv("TELEGRAM_API_TOKEN")
 
 
 bot = Bot(token=API_TOKEN)
