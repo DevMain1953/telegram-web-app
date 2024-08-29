@@ -37,7 +37,7 @@ async def send_message_with_button_to_client(message: Message) -> None:
                 InlineKeyboardButton(
                     text="Заполнить",
                     web_app=WebAppInfo(
-                        url="https://url-to-ngrok-so-you-need-to-change-it"
+                        url=f"https://url-to-ngrok?first_name={client_first_name}&last_name={client_last_name}&username={client_username}"
                     ),
                 )
             ]
