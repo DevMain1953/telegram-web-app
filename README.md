@@ -19,3 +19,15 @@ Install ```node.js``` and ```npm``` to run frontend, you need ```node.js 18.19.0
 ```
 sudo apt install npm
 ```
+Then
+```
+cd frontend
+
+# To install node modules
+npm install
+npm install pinia
+
+# To install TailwindCSS
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
