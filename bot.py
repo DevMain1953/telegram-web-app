@@ -1,6 +1,5 @@
 import os
 from aiogram import Bot, Dispatcher, types
-from aiogram.utils import executor
 from dotenv import load_dotenv
 
 
@@ -29,4 +28,4 @@ async def send_button(message: types.Message) -> None:
 
 
 if __name__ == "__main__":
-    executor.start_polling(dp, skip_updates=True)
+    dp.run_polling()
