@@ -1,0 +1,5 @@
+fastapi
+tortoise-orm
+aiogram
+uvicorn[standard]
+
