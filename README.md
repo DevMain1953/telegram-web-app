@@ -25,8 +25,4 @@ cd frontend
 
 # To install node modules
 npm install
-
-# To install TailwindCSS
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init
 ```
