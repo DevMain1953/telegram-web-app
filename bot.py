@@ -30,7 +30,10 @@ async def send_message_with_button_to_client(message: Message) -> None:
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text="Заполнить", web_app=WebAppInfo(url="https://to-do")
+                    text="Заполнить",
+                    web_app=WebAppInfo(
+                        url="https://url-to-ngrok-so-you-need-to-change-it"
+                    ),
                 )
             ]
         ]
