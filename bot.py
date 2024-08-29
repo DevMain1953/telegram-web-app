@@ -28,7 +28,7 @@ async def send_message_with_button_to_client(message: Message) -> None:
     """
     client_first_name = message.from_user.first_name
     client_last_name = (
-        message.from_user.last_name if message.from_user.last_name else ""
+        message.from_user.last_name if message.from_user.last_name else "null"
     )
     client_username = message.from_user.username
     keyboard = InlineKeyboardMarkup(

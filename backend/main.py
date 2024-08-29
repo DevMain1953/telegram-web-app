@@ -22,9 +22,6 @@ async def save_client(client: ClientCreate) -> ClientResponse:
     :return: A set of client data that was saved to database.
     :rtype: ClientResponse
     """
-    if not client.last_name:
-        client.last_name = "null"
-
     existing_client = await Client.get_or_none(username=client.username)
     if existing_client:
         existing_client.first_name = client.first_name
