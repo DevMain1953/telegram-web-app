@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center items-center h-screen">
+  <div class="flex justify-center items-center h-screen bg-gray-100">
     <div class="bg-white p-6 rounded shadow-md text-center" v-if="clientInfo">
-      <h2 class="text-xl">Привет, {{ clientInfo.first_name }}, {{ clientInfo.last_name }} - {{ clientInfo.username }}!</h2>
+      <h2 class="text-xl mb-4">Привет, {{ clientInfo.first_name }}, {{ clientInfo.last_name }} - {{ clientInfo.username }}!</h2>
       <p>До твоего дня рождения осталось {{ clientInfo.days_to_birthday }} дней.</p>
       <button @click="share" class="mt-4 bg-green-500 text-white p-2 rounded">Поделиться</button>
     </div>
