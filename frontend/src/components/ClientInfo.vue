@@ -26,7 +26,7 @@ onMounted(async () => {
 })
 
 const share = () => {
-  const shareLink = `${window.location.origin}/client-info/${clientInfo.value.username}`
+  const shareLink = `${window.location.origin}/client-info/${clientInfo.value.username}?tgWebApp=true`
   navigator.clipboard.writeText(shareLink)
   alert('Ссылка скопирована в буфер обмена!')
 }
