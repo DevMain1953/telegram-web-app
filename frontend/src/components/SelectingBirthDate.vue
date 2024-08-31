@@ -2,8 +2,8 @@
   <div class="flex items-center justify-center h-screen bg-gray-100">
     <div class="bg-white p-6 rounded shadow-md w-full max-w-md">
       <h2 class="text-xl mb-4 text-center">Привет, {{ firstName }} {{ lastName }}!</h2>
-      <label for="custom_date" class="block mb-2 text-sm font-medium text-gray-700">
-        Введите свою дату рождения:
+      <label for="custom_date" class="block mb-2 text-lg font-medium text-gray-700">
+        Введи свою дату рождения:
       </label>
       <div class="flex space-x-2 mb-4">
         <select v-model="selectedYear" class="border p-2 rounded">
