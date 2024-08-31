@@ -1,5 +1,5 @@
 # Overview
-Simple Telegram Web App
+Simple Telegram Web App. TypeScript is used in Vue components, JavaScript is used for configuration.
 
 # Installation
 Install venv tool for Python3:
@@ -15,7 +15,7 @@ Install all dependencies to run backend:
 ```
 pip install -r requirements.txt
 ```
-Install ```node.js``` and ```npm``` to run frontend, you need ```node.js 18.19.0``` => ```npm 9.2.0```:
+Install ```node.js``` and ```npm``` to run frontend:
 ```
 sudo apt install npm
 ```
