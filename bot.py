@@ -28,7 +28,7 @@ async def send_message_with_button_to_client(message: Message) -> None:
     """
     arguments_of_start_command = message.text.split(" ")
     if len(arguments_of_start_command) > 1:
-        keyboard_markup = get_button_to_client_info_page(arguments_of_start_command)
+        keyboard_markup = get_button_to_client_info_page(arguments_of_start_command[1])
     else:
         keyboard_markup = get_button_to_birthday_selecting_page(message)
     await message.answer(
@@ -67,20 +67,19 @@ def get_button_to_birthday_selecting_page(message: Message) -> InlineKeyboardMar
 
 
 def get_button_to_client_info_page(
-    arguments_of_start_command: list,
+    argument_of_start_command: str,
 ) -> InlineKeyboardMarkup:
     """
     Returns a button that opens Telegram Web App and makes redirect to client info page.
 
-    :param arguments_of_start_command: A list with arguments of start command.
-    :type arguments_of_start_command: list
+    :param argument_of_start_command: An argument of start command.
+    :type argument_of_start_command: str
 
     :return: A button that opens Telegram Web App and makes redirect to client info page.
     :rtype: InlineKeyboardMarkup
     """
-    parameters_of_url_to_telegram_web_app = arguments_of_start_command[1]
-    web_app_url = (
-        f"{os.getenv('URL_TO_FRONTEND')}/{parameters_of_url_to_telegram_web_app}"
+    web_app_url = f"{os.getenv('URL_TO_FRONTEND')}/" + "/".join(
+        argument_of_start_command.split("_")
     )
     return InlineKeyboardMarkup(
         inline_keyboard=[

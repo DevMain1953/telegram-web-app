@@ -26,7 +26,7 @@ onMounted(async () => {
 })
 
 const share = () => {
-  const shareLink = `tg://resolve?domain=virgo_cluster_bot&start=client-info/${clientInfo.value.username}`
+  const shareLink = `tg://resolve?domain=virgo_cluster_bot&start=client-info_${clientInfo.value.username}`
   navigator.clipboard.writeText(shareLink)
   alert('Ссылка скопирована в буфер обмена!')
 }
