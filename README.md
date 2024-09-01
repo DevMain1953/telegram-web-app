@@ -1,7 +1,11 @@
 # Overview
-Simple Telegram Web App. TypeScript is used in Vue components, JavaScript is used for configuration.
+
+Simple Telegram Web App. TypeScript is used in Vue components, JavaScript is used in configuration.
+- [black](https://pypi.org/project/black/) - backend code and configuration formatting
+- [prettier](https://www.npmjs.com/package/prettier/) - frontend code and configuration formatting
 
 # Installation
+
 Install venv tool for Python3:
 ```
 sudo apt install python3-venv
