@@ -16,11 +16,6 @@ const routes = [
     component: SelectingBirthDate,
   },
   {
-    path: "/:username",
-    redirect: "/client-info/:username",
-    props: true,
-  },
-  {
     path: "/",
     redirect: "/selecting-birth-date",
   },
@@ -29,6 +24,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.path === "/selecting-birth-date" && to.query.tgWebAppStartParam) {
+    next({
+      name: "ClientInfo",
+      params: { username: to.query.tgWebAppStartParam },
+    });
+  } else {
+    next();
+  }
 });
 
 export default router;
