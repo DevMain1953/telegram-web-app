@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TELEGRAM_API_TOKEN = os.getenv("TELEGRAM_API_TOKEN")
+URL_TO_FRONTEND = os.getenv('URL_TO_FRONTEND')
 
 
 bot = Bot(token=TELEGRAM_API_TOKEN)
@@ -58,7 +59,7 @@ def get_button_to_birthday_selecting_page(message: Message) -> InlineKeyboardMar
                 InlineKeyboardButton(
                     text="Заполнить",
                     web_app=WebAppInfo(
-                        url=f"{os.getenv('URL_TO_FRONTEND')}?first_name={client_first_name}&last_name={client_last_name}&username={client_username}"
+                        url=f"{URL_TO_FRONTEND}?first_name={client_first_name}&last_name={client_last_name}&username={client_username}"
                     ),
                 )
             ]
@@ -78,7 +79,7 @@ def get_button_to_client_info_page(
     :return: A button that opens Telegram Web App and makes redirect to client info page.
     :rtype: InlineKeyboardMarkup
     """
-    web_app_url = f"{os.getenv('URL_TO_FRONTEND')}/" + "/".join(
+    web_app_url = f"{URL_TO_FRONTEND}/" + "/".join(
         argument_of_start_command.split("_")
     )
     return InlineKeyboardMarkup(
