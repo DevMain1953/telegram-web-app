@@ -16,6 +16,11 @@ const routes = [
     component: SelectingBirthDate,
   },
   {
+    path: "/:username",
+    redirect: "/client-info/:username",
+    props: true,
+  },
+  {
     path: "/",
     redirect: "/selecting-birth-date",
   },
