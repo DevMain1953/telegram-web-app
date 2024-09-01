@@ -48,7 +48,7 @@ export default {
 
     const share = () => {
       if (clientInfo.value) {
-        const shareLink = `tg://resolve?domain=virgo_cluster_bot&start=client-info_${clientInfo.value.username}`;
+        const shareLink = `https://t.me/virgo_cluster_bot/test_web_app&username=${clientInfo.value.username}`;
         navigator.clipboard
           .writeText(shareLink)
           .then(() => {
