@@ -1,24 +1,24 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 
-import ClientInfo from '../components/ClientInfo.vue';
-import SelectingBirthDate from '../components/SelectingBirthDate.vue';
+import ClientInfo from "../components/ClientInfo.vue";
+import SelectingBirthDate from "../components/SelectingBirthDate.vue";
 
 const routes = [
   {
-    path: '/client-info/:username',
-    name: 'ClientInfo',
+    path: "/client-info/:username",
+    name: "ClientInfo",
     component: ClientInfo,
     props: true,
   },
   {
-    path: '/selecting-birth-date',
-    name: 'SelectingBirthDate',
+    path: "/selecting-birth-date",
+    name: "SelectingBirthDate",
     component: SelectingBirthDate,
   },
   {
-    path: '/',
-    redirect: '/selecting-birth-date',
-  }
+    path: "/",
+    redirect: "/selecting-birth-date",
+  },
 ];
 
 const router = createRouter({
